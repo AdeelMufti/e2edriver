@@ -1,0 +1,11 @@
+fastparquet==2024.11.0
+numpy==1.23.5
+protobuf==6.30.2
+pyarrow==16.0.0
+tqdm==4.65.0
+torch==2.7.0+cu128
+torchvision==0.22.0+cu128
+tensorboard==2.19.0
+requests==2.32.3
+google_auth_oauthlib==1.0.0
+timm==1.0.15
