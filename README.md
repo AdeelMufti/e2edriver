@@ -37,6 +37,8 @@ python src/main.py
 ```
 
 ## Cloud Training: AWS
+* Setup a docker account on hub.docker.com
+* Modify all .sh shell scripts and update $DOCKER_USER with your username
 * Upload the preprocessed dataset to S3 bucket
 * Create an EC2 machine with a GPU, attach and mount S3 bucket
 * Note the EC2 Instance ID
