@@ -98,7 +98,7 @@ class WaymoE2EDataset(Dataset):
         )
 
         self.parquet = fastparquet.ParquetFile(self.dataset_dir)
-        # create_dataset.py writes 64 records per row group, using as 1:1 for batch_size
+        # data_create.py writes 64 records per row group, using as 1:1 for batch_size
         self.total_batches = len(self.parquet.row_groups)
         logger.info(
             f"Total batches available in data: {self.total_batches}, of batch size: {self.batch_size}, total rows: {self.parquet.count()}"

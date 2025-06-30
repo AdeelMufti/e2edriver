@@ -16,13 +16,14 @@ from waymo_open_dataset.protos import end_to_end_driving_data_pb2 as wod_e2ed_pb
 from utils import get_console_logger
 
 logger = get_console_logger()
+USER = os.environ.get("USER") or os.environ.get("USERNAME") or ""
 
 # Config
 image_downsize_factor = 4
 num_images = 8
 writer_batch_size = 64
-src_dir = "/home/adeel/data/waymo_open_dataset_end_to_end_camera_v_1_0_0"
-dst_dir = "/home/adeel/data/waymo_open_dataset_end_to_end_camera_v_1_0_0_parquet_v0_1"
+src_dir = f"/home/{USER}/data/waymo_open_dataset_end_to_end_camera_v_1_0_0"
+dst_dir = f"/home/{USER}/data/waymo_open_dataset_end_to_end_camera_v_1_0_0_parquet_v0_1"
 split_type = "val"  # "train", "test", val
 num_processes = mp.cpu_count() // 2
 

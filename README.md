@@ -3,9 +3,9 @@
 This codebase can be used to train a deep learning model on the [Waymo End to End Open Dataset](https://waymo.com/open/data/e2e/).
 
 The model is set up as follows:
-* Encode: Images using SqueezeNet (Convolutional) to ViT (Vision Transformer)
-* Encode: State and Intent using MLPs
-* Fision: Images, State using simple Latent Query Transformer, with positional embedding per surround camera at each tick
+* Encode: Images using SqueezeNet (Convolutional) to ViT (Vision Transformer). Positional embedding per surround camera at each tick
+* Encode: State: Positional History and Intent using MLPs
+* Fusion: Simple fusion of Images, State
 * Decode Trajectory: Multiple head formulations
     * Unimodal Regression
     * Multimodal Regression (Best Results)
@@ -25,7 +25,7 @@ Other model details:
 pip install requirements.txt
 pip install requirements_waymo_dataset.txt
 ```
-* Use `create_dataset.py` to download and preprocess the Waymo Dataset
+* Use `data_create.py` to download and preprocess the Waymo Dataset
 * Edit configuration in `config.py`, as needed
 * Test training locally on CPU
 ```

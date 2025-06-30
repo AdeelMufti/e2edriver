@@ -1,11 +1,13 @@
 # config.py
 from enum import Enum
+import os
 
 import torch
 
 from utils import get_console_logger
 
 logger = get_console_logger()
+USER = os.environ.get("USER") or os.environ.get("USERNAME") or ""
 
 
 ### Data ###
@@ -58,13 +60,13 @@ class PredictedDataColumn(Enum):
 
 
 TRAIN_DATASET_DIR = (
-    "/home/adeel/data/waymo_open_dataset_end_to_end_camera_v_1_0_0_parquet_v0_1"
+    f"/home/{USER}/data/waymo_open_dataset_end_to_end_camera_v_1_0_0_parquet_v0_1"
 )
 VALIDATION_DATASET_DIR = (
-    "/home/adeel/data/waymo_open_dataset_end_to_end_camera_v_1_0_0_parquet_v0_1_val"
+    f"/home/{USER}/data/waymo_open_dataset_end_to_end_camera_v_1_0_0_parquet_v0_1_val"
 )
 TEST_DATASET_DIR = (
-    "/home/adeel/data/waymo_open_dataset_end_to_end_camera_v_1_0_0_parquet_v0_1_test"
+    f"/home/{USER}/data/waymo_open_dataset_end_to_end_camera_v_1_0_0_parquet_v0_1_test"
 )
 COLUMNS = [column.value[1] for column in DataColumn]
 logger.info(f"Data columns: {COLUMNS}")
@@ -88,8 +90,8 @@ NUM_FUTURE_STATES = (
 
 ### Logging and Checkpoints ###
 EXPERIMENT_NAME = "default_experiment"  # Name of the experiment for logging
-LOG_DIR = "/home/adeel/data/logs"
-CHECKPOINT_DIR = "/home/adeel/data/checkpoints"
+LOG_DIR = f"/home/{USER}/data/logs"
+CHECKPOINT_DIR = f"/home/{USER}/data/checkpoints"
 SAVE_CHECKPOINT_FREQ = 1  # Save checkpoint every N epochs
 LOG_STEP_FREQ = 10  # Log training loss every N steps
 
